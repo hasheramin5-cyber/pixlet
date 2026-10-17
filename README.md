@@ -1,65 +1,82 @@
 # Pixlet
 
-Pixlet is an offline-first pixel art studio application built with Flutter and Dart. It provides a grid canvas for creating, editing, managing, and exporting pixel art on mobile and desktop platforms.
+<p align="center">
+  <img src="assets/branding/pixlet - b.png" alt="Pixlet logo" width="120">
+</p>
+
+<p align="center">
+  <strong>A pixel-art studio for creating, editing, and exporting pixel art.</strong>
+  <br>
+  Built with Flutter and Dart.
+</p>
+
+<p align="center">
+  <a href="https://github.com/hasheramin5-cyber/pixlet/releases/latest">Download for Android</a>
+  ·
+  <a href="https://github.com/hasheramin5-cyber/pixlet">Source Code</a>
+</p>
+
+---
+
+## Overview
+
+Pixlet is an offline-first pixel-art editor designed to make creating and managing pixel artwork simple. Draw on a customizable grid, explore color palettes, manage projects locally, and export artwork as PNG files.
 
 ## Features
 
-- **Canvas Resolutions**: Create 16x16, 32x32, or 64x64 pixel grids.
-- **Drawing Tools**:
-  - Pencil: Tap or drag to draw individual pixels.
-  - Eraser: Reset pixels to transparent.
-  - Flood Fill: Breadth-first search (BFS) fill for contiguous areas.
-  - Eyedropper: Sample color values directly from the canvas.
-  - Pan & Zoom: Viewport navigation with controls for center/reset, zoom in/out, and grid overlay toggle.
-- **Gesture Handling**: Supports single-finger drawing and multi-touch pinch-to-zoom and pan via `InteractiveViewer` to avoid drawing conflicts.
-- **Color Palettes**:
-  - Predefined palettes: PICO-8 Classics, GameBoy DMG, Cyberpunk Neon, Pastel Studio, and Earth & Clay.
-  - Custom Color Studio dialog with HSV sliders, hex string input, and live comparison.
-  - Recent color history tracking up to 12 swatches.
-- **History & Canvas Control**:
-  - Snapshot-based undo and redo up to 30 steps.
-  - Clear canvas with confirmation prompt.
-- **Local Persistence**:
-  - Offline storage using `shared_preferences` with serialized JSON.
-  - Project gallery with live thumbnail rendering, dimensions, and relative timestamps.
-  - Project renaming, deletion, and auto-save on navigation.
-  - Built-in starter artworks on first launch.
-- **Export & Sharing**:
-  - Native PNG generation via `dart:ui` with nearest-neighbor sampling.
-  - Export scale options: 1x (native), 8x, 16x, and 32x.
-  - Transparent background toggle.
-  - Native platform sharing via `share_plus` and `path_provider`.
+- **Pixel Canvas** — Create artwork on 16×16, 32×32, and 64×64 grids.
+- **Drawing Tools** — Pencil, eraser, flood fill, and eyedropper.
+- **Canvas Navigation** — Pan, zoom, and toggle the grid overlay.
+- **Color Studio** — Built-in palettes, custom HSV/hex colors, and recent colors.
+- **Undo & Redo** — Revert or restore recent edits.
+- **Project Gallery** — Save, rename, browse, and delete projects locally.
+- **PNG Export** — Export at multiple scales with optional transparency.
+- **Sharing** — Share exported artwork using your device's native sharing interface.
+
+## Download
+
+Get the latest Android APK from [GitHub Releases](https://github.com/hasheramin5-cyber/pixlet/releases/latest).
+
+1. Download the APK to your Android device.
+2. Open the downloaded file.
+3. Allow installation from that source if Android requests permission.
+4. Install and launch Pixlet.
+
+## Run Locally
+
+**Requirements:** Flutter SDK and Dart SDK.
+
+```bash
+git clone https://github.com/hasheramin5-cyber/pixlet.git
+cd pixlet
+flutter pub get
+flutter run
+```
+
+## Tech Stack
+
+- **Flutter** — Cross-platform UI framework
+- **Dart** — Application logic
+- **Shared Preferences** — Local project persistence
+- **Path Provider** — File-system path access
+- **Share Plus** — Native sharing integration
 
 ## Project Structure
 
-- `lib/models/`: Pixel grid array (`PixelCanvasData`), tool types (`ToolType`), color palettes (`PaletteCollection`), and project metadata (`ProjectMetadata`).
-- `lib/painters/`: Custom painters for nearest-neighbor canvas rendering, checkerboard background, and gallery thumbnails.
-- `lib/services/`: Local persistence (`StorageService`) and PNG encoding and sharing (`ExportService`).
-- `lib/state/`: Canvas state and history management (`CanvasState`).
-- `lib/widgets/`: Viewport, tool bar, palette bar, project card, and modal dialogs.
-- `lib/screens/`: Studio workspace (`StudioScreen`) and project gallery (`GalleryScreen`).
-
-## Prerequisites
-
-- Flutter SDK 3.0.0 or higher (Dart SDK `>=3.0.0 <4.0.0`).
-- Target device, simulator/emulator, or desktop build environment.
-
-## Getting Started
-
-1. Open the project root directory.
-2. If platform folders (`android/`, `ios/`, `windows/`, etc.) are not present, generate platform scaffolding:
-   ```bash
-   flutter create .
-   ```
-3. Fetch dependencies:
-   ```bash
-   flutter pub get
-   ```
-4. Run the application:
-   ```bash
-   flutter run
-   ```
+```text
+lib/
+├── models/      # Canvas data, tools, palettes, metadata
+├── painters/    # Canvas and thumbnail rendering
+├── screens/     # Studio and project gallery
+├── services/    # Storage and PNG export
+├── state/       # Canvas state and edit history
+└── widgets/     # Reusable UI components
+```
 
 ## Project Status
 
-Core MVP implementation complete. All drawing tools, palette management, undo/redo history, local storage, and PNG export pipelines are implemented in `lib/`.
+The initial Android release is available. Pixlet is an actively developed project.
+
+---
+
+**Pixlet** · Built with Flutter and Dart.
