@@ -1,8 +1,8 @@
-
+﻿
 name: pixlet
-description: "PIXLET — Premium Interactive Pixel-Art Studio"
+description: "PIXLET â€” Premium Interactive Pixel-Art Studio"
 publish_to: 'none'
-version: 1.0.0+1
+version: 1.0.1+2
 
 environment:
   sdk: '>=3.0.0 <4.0.0'
